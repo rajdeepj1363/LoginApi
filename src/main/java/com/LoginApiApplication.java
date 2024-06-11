@@ -7,11 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import com.security.SecurityConfig;
+
 @SpringBootApplication
 public class LoginApiApplication {
-
-	@Autowired
-	public static ApplicationContext cont;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(LoginApiApplication.class, args);

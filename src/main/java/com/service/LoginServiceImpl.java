@@ -1,11 +1,14 @@
 package com.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.entity.User;
+import com.exception.InvalidPasswordException;
 import com.exception.UserNotFoundException;
 import com.repository.UserRepository;
 import com.utils.LoginConstants;
@@ -19,7 +22,7 @@ public class LoginServiceImpl implements LoginService {
 	private UserRepository userRepo;
 	
 	@Override
-	public User verifyCredentials(String username, String password) throws UserNotFoundException
+	public User verifyCredentials(String username, String password) throws UserNotFoundException, InvalidPasswordException
 	{
 		logger.info("Username: {}, Password: {}",username,password);
 		User user = null;
@@ -31,8 +34,11 @@ public class LoginServiceImpl implements LoginService {
 			logger.info("Login successful");
 			return user;
 		}
-		logger.error("Invalid password");
-		return user;
+		else
+		{
+			logger.error("Invalid password");
+			throw new InvalidPasswordException("Provided password is invalid");
+		}
 	}
 	
 	public boolean logoutUser(String username)
@@ -49,5 +55,10 @@ public class LoginServiceImpl implements LoginService {
 			logger.info("Logging out...");
 			return true;
 		}
+	}
+	
+	public List<User> getAllUsers()
+	{
+		return userRepo.findAll();
 	}
 }

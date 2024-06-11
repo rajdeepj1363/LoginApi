@@ -1,9 +1,10 @@
 package com.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,10 @@ public class User {
 	private String username;
 	private String password;
 	private String status;
+	
+	public User() {}
+	
+	
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", status=" + status + "]";
