@@ -50,5 +50,19 @@ public class LoginController {
 	{
 		return "Admin verified";
 	}
+//	
+//	@HystrixCommand(fallbackMethod="fallback_method" ,commandProperties = {
+//			@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="2000")
+//	})
+//	public String hystrixDummyMethod() throws InterruptedException
+//	{
+//		Thread.sleep(4000);
+//		return "SUCCESS";
+//	}
+//	
+//	public void fallback_method()
+//	{
+//		logger.error("Request timeout fallback!");
+//	}
 
 }

@@ -2,11 +2,6 @@ package com.exception;
 
 import java.time.LocalDateTime;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class ExceptionTemplate {
 	
 	private LocalDateTime dateTime;
@@ -17,4 +12,30 @@ public class ExceptionTemplate {
 	{
 		
 	}
+
+	public LocalDateTime getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(LocalDateTime dateTime) {
+		this.dateTime = dateTime;
+	}
+
+	public String getExceptionMessage() {
+		return exceptionMessage;
+	}
+
+	public void setExceptionMessage(String exceptionMessage) {
+		this.exceptionMessage = exceptionMessage;
+	}
+
+	public int getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	
+	
 }
